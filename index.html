@@ -62,8 +62,8 @@
     const canvas = document.getElementById('canvas')
     const ctx = canvas.getContext('2d')
 
-    const cWidth = canvas.width;
-    const cHeight = canvas.height;
+    var cWidth = canvas.width;
+    var cHeight = canvas.height;
     
     // game variables
     var angleDegrees = 0
@@ -94,10 +94,10 @@
         canvas.width = window.innerWidth
         canvas.height = window.innerHeight
 
-        document.getElementById('mainContainer').style.width = 500 + 'px'
+        document.getElementById('mainContainer').style.width = innerWidth + 'px'
         document.getElementById('mainContainer').style.height = innerHeight + 'px'
 
-        document.getElementById('endGameScreen').style.width = 500 + 'px'
+        document.getElementById('endGameScreen').style.width = innerWidth + 'px'
         document.getElementById('endGameScreen').style.height = innerHeight + 'px'
 
         update()
@@ -540,6 +540,21 @@
                 circleMoveDirection = 'none'
             }
         }
+
+
+        addEventListener('resize', (event) => {
+            canvas.width = innerWidth
+            canvas.height = innerHeight
+
+            cWidth = canvas.width
+            cHeight = canvas.height
+
+            document.getElementById('mainContainer').style.width = innerWidth + 'px'
+            document.getElementById('mainContainer').style.height = innerHeight + 'px'
+
+            document.getElementById('endGameScreen').style.width = innerWidth + 'px'
+            document.getElementById('endGameScreen').style.height = innerHeight + 'px'
+        })
 
         
     }
