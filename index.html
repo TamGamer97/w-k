@@ -24,13 +24,13 @@
             <h1 id="K" style="position: absolute; text-align: center; display: none; width: 100%; top: 30px; font-size: 40px; font-family: Jua; color: #ef5fa7; opacity: 0.9; transition: 2s;">K</h1>
             
             <div style="display: flex; justify-content: center; ">
-                <div style="width: 50%; height: 5%; border-radius: 5px; background-color: #ff8dc637; bottom: 50px; position: absolute; ">
+                <div style="width: 550px; height: 5%; border-radius: 5px; background-color: #ff8dc637; bottom: 50px; position: absolute; ">
                     <div id="progressBar" style="position: absolute; width: 0%; height: 100%; border-radius: 5px; background-color: #ff8dc6; position: absolute; transition: 2s;">
     
                     </div>
+                    <img src="https://w-plus-k.netlify.app/assets/Heart.png" style="width: 60px; position: absolute; right: 0px;">
                 </div>
 
-                <img src="https://w-plus-k.netlify.app/assets/Heart.png" style="width: 60px; bottom: 50px; position: absolute; right: 50px;">
                 
             </div>
 
@@ -53,11 +53,11 @@
             
             <img id="i1" src="https://w-plus-k.netlify.app/assets/instructions1.png" style="width: 450px; transition: 2s; display: none;">
 
-            <img id="i2" src="https://w-plus-k.netlify.app/assets/instructions2.png" style="width: 250px; transition: 2s; position: relative; top: 1000px; margin-top: 60px;">
+            <img id="i2" src="https://w-plus-k.netlify.app/assets/instructions2.png" style="width: 250px; transition: 2s; position: relative; top: 1000px; margin-top: 60px; opacity: 0;">
 
-            <img id="i3" src="https://w-plus-k.netlify.app/assets/instructions3.png" style="width: 250px; transition: 2s; position: relative; top: 1000px; margin-top: 30px;">
+            <img id="i3" src="https://w-plus-k.netlify.app/assets/instructions3.png" style="width: 250px; transition: 2s; position: relative; top: 1000px; margin-top: 30px; opacity: 0;">
 
-            <img id="i4" onclick="document.getElementById('gameIntro').style.display = 'none'; document.getElementById('mainContainer').style.display = 'block'; init()" src="https://w-plus-k.netlify.app/assets/instructions4.png" style="width: 100px; transition: 2s; position: relative; top: 1000px; margin-top: 70px;">
+            <img id="i4" onclick="document.getElementById('gameIntro').style.display = 'none'; document.getElementById('mainContainer').style.display = 'block'; init()" src="https://w-plus-k.netlify.app/assets/instructions4.png" style="width: 100px; transition: 2s; position: relative; top: 1000px; margin-top: 70px; opacity: 0;">
 
         </div>
 
@@ -598,10 +598,13 @@
         document.getElementById('i1').style.display = 'flex'
         setTimeout(() => {
             document.getElementById('i2').style.top = '0px'
+            document.getElementById('i2').style.opacity = 1
             setTimeout(() => {
                 document.getElementById('i3').style.top = '0px'
+                document.getElementById('i3').style.opacity = 1
                 setTimeout(() => {
                     document.getElementById('i4').style.top = '0px'
+                    document.getElementById('i4').style.opacity = 1
                 }, 1000);
             }, 1000);
         }, 1000);
