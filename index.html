@@ -14,9 +14,9 @@
         </div>
 
         <div id="mainContainer" style="position: absolute; transition: 3s;">
-            <img id="live-1" src="/assets/head.png" style="width: 35px; height: 35px; position: absolute; right: 20px; top: 20px">
-            <img id="live-2" src="/assets/head.png" style="width: 35px; height: 35px; position: absolute; right: 70px; top: 20px">
-            <img id="live-3" src="/assets/head.png" style="width: 35px; height: 35px; position: absolute; right: 120px; top: 20px">
+            <img id="live-1" src="https://w-plus-k.netlify.app/assets/head.png" style="width: 35px; height: 35px; position: absolute; right: 20px; top: 20px">
+            <img id="live-2" src="https://w-plus-k.netlify.app/assets/head.png" style="width: 35px; height: 35px; position: absolute; right: 70px; top: 20px">
+            <img id="live-3" src="https://w-plus-k.netlify.app/assets/head.png" style="width: 35px; height: 35px; position: absolute; right: 120px; top: 20px">
             <h1 id="scoreTxt" style="position: relative; display: none; top: 100px; font-size: 100px; text-align: center; font-family: Jua; color: black; opacity: 0.3;">0</h1>
     
             <h1 id="W" style="position: absolute; text-align: center; display: none; width: 100%; top: -20px; font-size: 40px; font-family: Jua; color: #ef5fa7; opacity: 0.9; transition: 2s;">W</h1>
@@ -30,7 +30,7 @@
                     </div>
                 </div>
 
-                <img src="/assets/Heart.png" style="width: 60px; bottom: 50px; position: absolute; right: 50px;">
+                <img src="https://w-plus-k.netlify.app/assets/Heart.png" style="width: 60px; bottom: 50px; position: absolute; right: 50px;">
                 
             </div>
 
@@ -47,28 +47,28 @@
 
         <div id="gameIntro" style="position: absolute; transition: 3s; position: absolute; display: flex; justify-content: center; align-items: center; flex-direction: column; ">
 
-            <img id="txt1" src="/assets/IntroTxt1.png" style="width: 250px; transition: 2s; position: absolute;">
+            <img id="txt1" src="https://w-plus-k.netlify.app/assets/IntroTxt1.png" style="width: 250px; transition: 2s; position: absolute;">
 
-            <img onclick="loadInstructions()"  id="playTxt" src="/assets/playTxt.png" style="width: 150px; bottom: 120px; transition: 2s; cursor: pointer; position: absolute;">
+            <img onclick="loadInstructions()"  id="playTxt" src="https://w-plus-k.netlify.app/assets/playTxt.png" style="width: 150px; bottom: 120px; transition: 2s; cursor: pointer; position: absolute;">
             
-            <img id="i1" src="/assets/instructions1.png" style="width: 450px; transition: 2s; display: none;">
+            <img id="i1" src="https://w-plus-k.netlify.app/assets/instructions1.png" style="width: 450px; transition: 2s; display: none;">
 
-            <img id="i2" src="/assets/instructions2.png" style="width: 250px; transition: 2s; position: relative; top: 1000px; margin-top: 60px;">
+            <img id="i2" src="https://w-plus-k.netlify.app/assets/instructions2.png" style="width: 250px; transition: 2s; position: relative; top: 1000px; margin-top: 60px;">
 
-            <img id="i3" src="/assets/instructions3.png" style="width: 250px; transition: 2s; position: relative; top: 1000px; margin-top: 30px;">
+            <img id="i3" src="https://w-plus-k.netlify.app/assets/instructions3.png" style="width: 250px; transition: 2s; position: relative; top: 1000px; margin-top: 30px;">
 
-            <img id="i4" onclick="document.getElementById('gameIntro').style.display = 'none'; document.getElementById('mainContainer').style.display = 'block'; init()" src="/assets/instructions4.png" style="width: 100px; transition: 2s; position: relative; top: 1000px; margin-top: 70px;">
+            <img id="i4" onclick="document.getElementById('gameIntro').style.display = 'none'; document.getElementById('mainContainer').style.display = 'block'; init()" src="https://w-plus-k.netlify.app/assets/instructions4.png" style="width: 100px; transition: 2s; position: relative; top: 1000px; margin-top: 70px;">
 
         </div>
 
 
         <div id="endGameScreen" style="position: absolute; display: none; justify-content: center; align-items: center; flex-direction: column; background-color: white;; ">
-            <img src="/assets/deathHead.png" style="width: 200px; height: 300px;">
-            <img onclick="location.href ='/' " src="/assets/retryBtn.png" style="width: 200px; height: 50px; cursor: pointer; margin-top: 30px;">
+            <img src="https://w-plus-k.netlify.app/assets/deathHead.png" style="width: 200px; height: 300px;">
+            <img onclick="location.href ='/' " src="https://w-plus-k.netlify.app/assets/retryBtn.png" style="width: 200px; height: 50px; cursor: pointer; margin-top: 30px;">
         </div>
 
         <div id="WinGameScreen" style="position: absolute; display: none; justify-content: center; align-items: center; flex-direction: column; background-color: white;; ">
-            <img src="/assets/winHead.png" style="width: 400px; height: 300px;">
+            <img src="https://w-plus-k.netlify.app/assets/winHead.png" style="width: 400px; height: 300px;">
             <img id="winTxt" onclick="window.open('https://mattchong.squarespace.com/a-love-letter-to-wk', '_blank') " src="/assets/winTxt.png" style="width: 400px; height: 50px; cursor: pointer; margin-top: 30px; transition: 0.5; opacity: 0;">
         </div>
 
@@ -109,6 +109,9 @@
     var nikePowerActivated = false
     var amazonPowerActivated= false
 
+
+    const hostURL = 'https://w-plus-k.netlify.app'
+
     document.getElementById('body').setAttribute('onclick', "{document.getElementById('body').requestFullscreen(); screen.orientation.lock('landscape'); document.getElementById('body').setAttribute('onclick', '')}; canvas.width = window.innerWidth; canvas.height = window.innerHeight" )
 
 
@@ -131,16 +134,16 @@
 
         update()
 
-        headImg.src = './assets/head.png'
-        handImg.src = './assets/hand.png'
-        nikeHeadImg.src = './assets/nikeHead.png'
-        nikeHandImg.src = './assets/nikeHand.png'
-        amazonHeadImg.src = './assets/amazonHead.png'
+        headImg.src = hostURL+'/assets/head.png'
+        handImg.src = hostURL+'/assets/hand.png'
+        nikeHeadImg.src = hostURL+ '/assets/nikeHead.png'
+        nikeHandImg.src = hostURL+'/assets/nikeHand.png'
+        amazonHeadImg.src = hostURL+ '/assets/amazonHead.png'
 
-        nikeImg.src = './assets/Letters/42.png'
-        amazonImg.src = './assets/Letters/43.png'
+        nikeImg.src = hostURL+'/assets/Letters/42.png'
+        amazonImg.src = hostURL+'/assets/Letters/43.png'
 
-        letterImg.src = './assets/Letters/0.png'
+        letterImg.src = hostURL+'/assets/Letters/0.png'
 
         // flyingLetters.push(new letter('W', 20,20))
         intervalSpawnLetters()
@@ -696,11 +699,11 @@
 <style>
     @font-face{
         font-family: Jua;
-        src: url(/Assets/Fonts/Jua-Regular.ttf);
+        src: url(https://w-plus-k.netlify.app/Assets/Fonts/Jua-Regular.ttf);
     }
     @font-face{
         font-family: LomoCopy;
-        src: url(/Assets/Fonts/LomoCopy.ttf);
+        src: url(https://w-plus-k.netlify.app/Assets/Fonts/LomoCopy.ttf);
     }
     body{
         margin: 0px;
