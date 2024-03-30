@@ -19,11 +19,11 @@
             <img id="live-3" src="https://w-plus-k.netlify.app/assets/head.png" style="width: 35px; height: 35px; position: absolute; right: 120px; top: 20px">
             <h1 id="scoreTxt" style="position: relative; display: none; top: 100px; font-size: 100px; text-align: center; font-family: Jua; color: black; opacity: 0.3;">0</h1>
     
-            <h1 id="W" style="position: absolute; text-align: center; display: none; width: 100%; top: -20px; font-size: 40px; font-family: Jua; color: #ef5fa7; opacity: 0.9; transition: 2s;">W</h1>
-            <h1 id="+" style="position: absolute; text-align: center; display: none; width: 100%; top: 10px; left: 20px; font-size: 40px; font-family: Jua; color: #ef5fa7; opacity: 0.9; transition: 2s;">+</h1>
-            <h1 id="K" style="position: absolute; text-align: center; display: none; width: 100%; top: 30px; font-size: 40px; font-family: Jua; color: #ef5fa7; opacity: 0.9; transition: 2s;">K</h1>
+            <h1 id="W" style="position: absolute; text-align: center; display: none; width: 100%; bottom: 30px; font-size: 40px; font-family: Jua; color: #ef5fa7; opacity: 0.9; transition: 4s;">W</h1>
+            <h1 id="+" style="position: absolute; text-align: center; display: none; width: 100%; bottom: 6px; left: 20px; font-size: 40px; font-family: Jua; color: #ef5fa7; opacity: 0.9; transition: 4s;">+</h1>
+            <h1 id="K" style="position: absolute; text-align: center; display: none; width: 100%; bottom: -20px; font-size: 40px; font-family: Jua; color: #ef5fa7; opacity: 0.9; transition: 4s;">K</h1>
             
-            <div style="display: flex; justify-content: center; ">
+            <div style="display: none; justify-content: center; ">
                 <div style="width: 550px; height: 5%; border-radius: 5px; background-color: #ff8dc637; bottom: 50px; position: absolute; ">
                     <div id="progressBar" style="position: absolute; width: 0%; height: 100%; border-radius: 5px; background-color: #ff8dc6; position: absolute; transition: 2s;">
     
@@ -57,7 +57,7 @@
 
             <img id="i3" src="https://w-plus-k.netlify.app/assets/instructions3.png" style="width: 250px; transition: 2s; position: relative; top: 1000px; margin-top: 30px; opacity: 0;">
 
-            <img id="i4" onclick="document.getElementById('gameIntro').style.display = 'none'; document.getElementById('mainContainer').style.display = 'block'; init()" src="https://w-plus-k.netlify.app/assets/instructions4.png" style="width: 100px; transition: 2s; position: relative; top: 1000px; margin-top: 70px; opacity: 0;">
+            <img id="i4" onclick="document.getElementById('gameIntro').style.display = 'none'; document.getElementById('mainContainer').style.display = 'block'; init()" src="https://w-plus-k.netlify.app/assets/instructions4.png" style="width: 100px; cursor: pointer; transition: 2s; position: relative; top: 1000px; margin-top: 70px; opacity: 0;">
 
         </div>
 
@@ -76,6 +76,8 @@
     </div>
 </body>
 <script>
+
+    var goodLettersSpawnRate = 12 // Seconds for the rate of spawning good letters
 
     const canvas = document.getElementById('canvas')
     const ctx = canvas.getContext('2d')
@@ -474,30 +476,41 @@
                 setTimeout(() => {
                 
                     goodLettersList.forEach((l)=>{
-                        document.getElementById(l).style.top = (JSON.parse(document.getElementById(l).style.top.split('px')[0]) - 100) + 'px'
+                        document.getElementById(l).style.bottom = (window.innerHeight + 100) + 'px'
+                        // setTimeout(() => {
+                        //     document.getElementById(l).style.opacity = 0
+                        // }, 4000);
                     })
 
-                    // update progress bar
-                    if(document.getElementById('progressBar').style.width.split('%')[0] < 99)
-                    {
-                        var currentPercentage = JSON.parse(document.getElementById('progressBar').style.width.split('%')[0])
-                        document.getElementById('progressBar').style.width = ((currentPercentage += 100/3) + '%')
-                    }
+                    isRunning = false
 
-                    if(JSON.parse(document.getElementById('progressBar').style.width.split('%')[0]) > 99)
-                    {
-                        // alert('You Win')
-                        isRunning = false
-                    }
+
+                    // update progress bar
+                    // if(document.getElementById('progressBar').style.width.split('%')[0] < 99)
+                    // {
+                    //     var currentPercentage = JSON.parse(document.getElementById('progressBar').style.width.split('%')[0])
+                    //     document.getElementById('progressBar').style.width = ((currentPercentage += 100/3) + '%')
+                    // }
+
+                    // if(JSON.parse(document.getElementById('progressBar').style.width.split('%')[0]) > 99)
+                    // {
+                    //     // alert('You Win')
+                    //     isRunning = false
+                    // }
+
 
                     setTimeout(() => {
                         goodLettersList.forEach((l)=>{
-                        document.getElementById(l).style.top = (JSON.parse(document.getElementById(l).style.top.split('px')[0]) + 100) + 'px'
+                        // document.getElementById(l).style.top = (JSON.parse(document.getElementById(l).style.top.split('px')[0]) + 100) + 'px'
+                        // document.getElementById(l).style.top = -100 + 'px'
                         document.getElementById(l).style.display = 'none'
                         goodLettersList = []
 
 
                     })
+                    
+                    }, 1000);
+
                     if(isRunning == false)
                     {
                         // game win
@@ -510,7 +523,6 @@
                         }, 3000);
 
                     }
-                    }, 1000);
 
                 }, 500);
             }
@@ -557,7 +569,7 @@
         flyingLetters.push(new letter(lett, x, y, randomWholeNumber(0, 360), false))
         setTimeout(() => {
             intervalSpawnGoodLetters()
-        }, 8000);
+        }, goodLettersSpawnRate *1000);
     }
 
     function moveCircle(distance, direction)
