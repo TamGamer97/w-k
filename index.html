@@ -77,6 +77,8 @@
 </body>
 <script>
 
+    console.log('Start')
+
     var goodLettersSpawnRate = 12 // Seconds for the rate of spawning good letters
 
     const canvas = document.getElementById('canvas')
@@ -218,7 +220,7 @@
                     ctx.drawImage(headImg, centerX-55, centerY-55, 110, 110)
                 }catch (e){
                     console.log('error: ' + e)
-                    ctx.drawImage(headImg, centerX, centerY, 110, 110)
+                    ctx.drawImage(headImg, centerX, centerY, 20, 20)
                 }
             }
         }
