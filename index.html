@@ -114,7 +114,11 @@
 
     const hostURL = 'https://w-plus-k.netlify.app'
 
-    document.getElementById('body').setAttribute('onclick', "{document.getElementById('body').requestFullscreen(); screen.orientation.lock('landscape'); document.getElementById('body').setAttribute('onclick', '')}; canvas.width = window.innerWidth; canvas.height = window.innerHeight;" )
+    try{
+        document.getElementById('body').setAttribute('onclick', "{document.getElementById('body').requestFullscreen(); screen.orientation.lock('landscape'); document.getElementById('body').setAttribute('onclick', '')}; canvas.width = window.innerWidth; canvas.height = window.innerHeight;" )
+    }catch{
+        console.log('Full screen is unavailable')
+    }
 
 
     function init()
@@ -204,7 +208,12 @@
         }else if(amazonPowerActivated){
             if(amazonHeadImg.complete)
             {
-                ctx.drawImage(amazonHeadImg, centerX-55, centerY-55, 110, 110)
+                try{
+                    ctx.drawImage(amazonHeadImg, centerX-55, centerY-55, 110, 110)
+                }catch (e){
+                    console.log('error: ' + e)
+                    ctx.drawImage(amazonHeadImg, centerX, centerY, 110, 110)
+                }
             }
         }else{
             circleMoveSpeed = 5
