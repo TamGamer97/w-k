@@ -81,6 +81,7 @@
     var goodLettersSpawnRate = 20 // Seconds for the rate of spawning good letters
     var handMoveSpeed = 5
     const letterSpeed = 3
+    const enemySpawnRate = 4
 
 
 
@@ -607,7 +608,7 @@
         flyingLetters.push(new letter(lett, x, y, randomWholeNumber(0, 360), false))
         setTimeout(() => {
             intervalSpawnLetters()
-        }, 4000);
+        }, enemySpawnRate * 1000);
     }
 
     function intervalSpawnGoodLetters()
