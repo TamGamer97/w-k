@@ -136,18 +136,18 @@
 
         update()
 
-        // headImg.src = hostURL+'/assets/head.png'
-        // handImg.src = hostURL+'/assets/hand.png'
-        // nikeHeadImg.src = hostURL+ '/assets/nikeHead.png'
-        // nikeHandImg.src = hostURL+'/assets/nikeHand.png'
-        // amazonHeadImg.src = hostURL+ '/assets/amazonHead.png'
+        headImg.src = hostURL+'/assets/head.png'
+        handImg.src = hostURL+'/assets/hand.png'
+        nikeHeadImg.src = hostURL+ '/assets/nikeHead.png'
+        nikeHandImg.src = hostURL+'/assets/nikeHand.png'
+        amazonHeadImg.src = hostURL+ '/assets/amazonHead.png'
 
-        // nikeImg.src = hostURL+'/assets/Letters/42.png'
-        // amazonImg.src = hostURL+'/assets/Letters/43.png'
+        nikeImg.src = hostURL+'/assets/Letters/42.png'
+        amazonImg.src = hostURL+'/assets/Letters/43.png'
 
-        // letterImg.src = hostURL+'/assets/Letters/0.png'
+        letterImg.src = hostURL+'/assets/Letters/0.png'
 
-        alert('Test 1.6')
+        // alert('Test 1.6')
 
         // flyingLetters.push(new letter('W', 20,20))
         intervalSpawnLetters()
@@ -161,7 +161,7 @@
         
         intervalSpawnGoodLetters()
 
-        alert('Test 2')
+        // alert('Test 2') - not cleard
     }
 
     function normalizeAngle(angleDegrees) {
@@ -192,7 +192,7 @@
         ctx.fill();
         ctx.closePath();
         
-        alert('Test 1') // cleard
+        // alert('Test 1') // cleard
         if(nikePowerActivated) 
         {
             ctx.drawImage(nikeHeadImg, centerX-30, centerY-55, 60, 110)
