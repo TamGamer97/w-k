@@ -201,16 +201,24 @@
         // alert('Test 1') // cleard
         if(nikePowerActivated) 
         {
-            if(nikeHandImg.complete)
+            if(nikeHeadImg.complete)
             {
-                ctx.drawImage(nikeHeadImg, centerX-30, centerY-55, 60, 110)
+                try{
+                    ctx.drawImage(nikeHeadImg, centerX-30, centerY-55, 60, 110)
+                }catch{
+                    ctx.drawImage(nikeHeadImg, centerX-30, centerY-55, nikeHeadImg.width, nikeHeadImg.height)
+                }
                 circleMoveSpeed = 5 * 1.3
             }
 
         }else if(amazonPowerActivated){
             if(amazonHeadImg.complete)
             {
-                ctx.drawImage(amazonHeadImg, centerX-55, centerY-55, 110, 110)
+                try{
+                    ctx.drawImage(amazonHeadImg, centerX-55, centerY-55, 110, 110)
+                }catch{
+                    ctx.drawImage(amazonHeadImg, centerX-55, centerY-55, amazonHeadImg.width, amazonHeadImg.height)
+                }
             }
         }else{
             circleMoveSpeed = 5
@@ -245,7 +253,11 @@
         {
             if(nikeHandImg.complete)
             {
-                ctx.drawImage(nikeHandImg, centerX-(110/2), centerY-150, 110, 60)
+                try{
+                    ctx.drawImage(nikeHandImg, centerX-(110/2), centerY-150, 110, 60)
+                }catch{
+                    ctx.drawImage(nikeHandImg, centerX-(110/2), centerY-150, 110, 60)
+                }
             }
         }else{
             if(handImg.complete)
@@ -593,7 +605,7 @@
         flyingLetters.push(new letter(lett, x, y, randomWholeNumber(0, 360), false))
         setTimeout(() => {
             intervalSpawnLetters()
-        }, 2000);
+        }, 4000);
     }
 
     function intervalSpawnGoodLetters()
