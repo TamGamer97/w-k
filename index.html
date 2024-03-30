@@ -77,7 +77,7 @@
 </body>
 <script>
 
-    console.log('Start')
+    console.log('Start 2')
 
     var goodLettersSpawnRate = 12 // Seconds for the rate of spawning good letters
 
@@ -250,7 +250,11 @@
         }else{
             if(handImg.complete)
             {
-                ctx.drawImage(handImg, centerX-(75/2), centerY-150, 75, 80)
+                try{
+                    ctx.drawImage(handImg, centerX-(75/2), centerY-150, 75, 80)
+                }catch{
+                    ctx.drawImage(handImg, centerX-(75/2), centerY-150, handImg.width, handImg.height)
+                }
             }
         }
         ctx.strokeStyle = '#c6605c';
