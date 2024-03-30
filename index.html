@@ -147,6 +147,8 @@
 
         letterImg.src = hostURL+'/assets/Letters/0.png'
 
+        alert('Test 1.5')
+
         // flyingLetters.push(new letter('W', 20,20))
         intervalSpawnLetters()
         setTimeout(() => {
@@ -190,7 +192,7 @@
         ctx.fill();
         ctx.closePath();
         
-        alert('Test 1')
+        alert('Test 1') // cleard
         if(nikePowerActivated) 
         {
             ctx.drawImage(nikeHeadImg, centerX-30, centerY-55, 60, 110)
