@@ -208,18 +208,18 @@
         }else if(amazonPowerActivated){
             if(amazonHeadImg.complete)
             {
-                try{
-                    ctx.drawImage(amazonHeadImg, centerX-55, centerY-55, 110, 110)
-                }catch (e){
-                    console.log('error: ' + e)
-                    ctx.drawImage(amazonHeadImg, centerX, centerY, 110, 110)
-                }
+                ctx.drawImage(amazonHeadImg, centerX-55, centerY-55, 110, 110)
             }
         }else{
             circleMoveSpeed = 5
             if(headImg.complete)
             {
-                ctx.drawImage(headImg, centerX-55, centerY-55, 110, 110)
+                try{
+                    ctx.drawImage(headImg, centerX-55, centerY-55, 110, 110)
+                }catch (e){
+                    console.log('error: ' + e)
+                    ctx.drawImage(headImg, centerX, centerY, 110, 110)
+                }
             }
         }
 
