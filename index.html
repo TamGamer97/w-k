@@ -77,9 +77,12 @@
 </body>
 <script>
 
-    console.log('Start 2')
 
     var goodLettersSpawnRate = 12 // Seconds for the rate of spawning good letters
+    var handMoveSpeed = 5
+    const letterSpeed = 1.5
+
+
 
     const canvas = document.getElementById('canvas')
     const ctx = canvas.getContext('2d')
@@ -90,10 +93,9 @@
     // game variables
     var angleDegrees = 0
     var angleRad = 0
-    var circleMoveSpeed = 5
     var circleMoveDirection = 'none'
-    const letterSpeed = 1.5
     var score=0;
+    var circleMoveSpeed = handMoveSpeed
     var goodLettersList = []
     var liveCount = 3
     var isRunning = true
@@ -670,9 +672,9 @@
                 setTimeout(() => {
                     document.getElementById('i4').style.top = '0px'
                     document.getElementById('i4').style.opacity = 1
-                }, 500);
-            }, 500);
-        }, 500);
+                }, 1000);
+            }, 1000);
+        }, 200);
 
     }
 
