@@ -79,7 +79,7 @@
 
 
     var goodLettersSpawnRate = 9 // Seconds for the rate of spawning good letters
-    var handMoveSpeed = 3
+    var handMoveSpeed = 7
     const letterSpeed = 1.5
     const enemySpawnRate = 6
 
@@ -211,7 +211,7 @@
                 }catch{
                     ctx.drawImage(nikeHeadImg, centerX-30, centerY-55, nikeHeadImg.width, nikeHeadImg.height)
                 }
-                circleMoveSpeed = handMoveSpeed * 1.3
+                circleMoveSpeed = 7 * 1.3
             }
 
         }else if(amazonPowerActivated){
@@ -224,7 +224,7 @@
                 }
             }
         }else{
-            circleMoveSpeed = handMoveSpeed
+            circleMoveSpeed = 7
             if(headImg.complete)
             {
                 try{
