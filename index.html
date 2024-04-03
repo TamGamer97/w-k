@@ -211,7 +211,7 @@
                 }catch{
                     ctx.drawImage(nikeHeadImg, centerX-30, centerY-55, nikeHeadImg.width, nikeHeadImg.height)
                 }
-                circleMoveSpeed = 5 * 1.3
+                circleMoveSpeed = handMoveSpeed * 1.3
             }
 
         }else if(amazonPowerActivated){
@@ -224,7 +224,7 @@
                 }
             }
         }else{
-            circleMoveSpeed = 5
+            circleMoveSpeed = handMoveSpeed
             if(headImg.complete)
             {
                 try{
