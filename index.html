@@ -51,9 +51,9 @@
 
             <img onclick="loadInstructions()"  id="playTxt" src="https://w-plus-k.netlify.app/assets/playTxt.png" style="width: 150px; bottom: 120px; transition: 2s; cursor: pointer; position: absolute;">
             
-            <img id="i1" src="https://w-plus-k.netlify.app/assets/pressandhold.png" style="width: 300px; transition: 2s; display: none;">
+            <img id="i1" src="https://w-plus-k.netlify.app/assets/instructions1.png" style="width: 450px; transition: 2s; display: none;">
 
-            <img id="i2" src="https://w-plus-k.netlify.app/assets/newpinkinstructions.png" style="width: 300px; transition: 2s; position: relative; top: 1000px; margin-top: 60px; opacity: 0;">
+            <img id="i2" src="https://w-plus-k.netlify.app/assets/instructions5.png" style="width: 250px; transition: 2s; position: relative; top: 1000px; margin-top: 60px; opacity: 0;">
 
             <img id="i3" src="https://w-plus-k.netlify.app/assets/instructions3.png" style="width: 250px; transition: 2s; position: relative; top: 1000px; margin-top: 30px; opacity: 0;">
 
@@ -69,7 +69,7 @@
 
         <div id="WinGameScreen" style="position: absolute; display: none; justify-content: center; align-items: center; flex-direction: column; background-color: white;; ">
             <img src="https://w-plus-k.netlify.app/assets/winHead.png" style="width: 400px; height: 300px;">
-            <img id="winTxt" onclick="window.open('https://mattchong.squarespace.com/a-love-letter-to-wk', '_blank') " src="https://w-plus-k.netlify.app/assets/winTxt.png" style="width: 400px; height: 50px; cursor: pointer; margin-top: 30px; transition: 0.5; opacity: 0;">
+            <img id="winTxt" onclick="location.href = '/' " src="https://w-plus-k.netlify.app/assets/winTxt.png" style="width: 400px; height: 50px; cursor: pointer; margin-top: 30px; transition: 0.5; opacity: 0;">
         </div>
 
 
@@ -78,10 +78,9 @@
 <script>
 
 
-    var goodLettersSpawnRate = 9 // Seconds for the rate of spawning good letters
-    var handMoveSpeed = 6
+    var goodLettersSpawnRate = 12 // Seconds for the rate of spawning good letters
+    var handMoveSpeed = 5
     const letterSpeed = 1.5
-    const enemySpawnRate = 6
 
 
 
@@ -211,7 +210,7 @@
                 }catch{
                     ctx.drawImage(nikeHeadImg, centerX-30, centerY-55, nikeHeadImg.width, nikeHeadImg.height)
                 }
-                circleMoveSpeed = 6 * 1.3
+                circleMoveSpeed = 5 * 1.3
             }
 
         }else if(amazonPowerActivated){
@@ -224,7 +223,7 @@
                 }
             }
         }else{
-            circleMoveSpeed = 6
+            circleMoveSpeed = 5
             if(headImg.complete)
             {
                 try{
@@ -608,7 +607,7 @@
         flyingLetters.push(new letter(lett, x, y, randomWholeNumber(0, 360), false))
         setTimeout(() => {
             intervalSpawnLetters()
-        }, enemySpawnRate * 1000);
+        }, 4000);
     }
 
     function intervalSpawnGoodLetters()
